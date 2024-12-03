@@ -1,0 +1,39 @@
+@use '../../../scss/variables.scss' as *;
+
+.employee {
+  &_sceleton {
+    margin-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 12px;
+    height: 84px;
+  }
+
+  &__avatar {
+    &_sceleton {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #f3f3f6 0%, #fafafa 100%);
+    }
+  }
+
+  &__name {
+    &_sceleton {
+      margin-bottom: 6px;
+      padding: 0;
+      width: 144px;
+      height: 16px;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #f3f3f6 0%, #fafafa 100%);
+    }
+  }
+
+  &__position {
+    &_sceleton {
+      width: 80px;
+      height: 12px;
+      border-radius: 50px;
+      background: linear-gradient(90deg, #f3f3f6 0%, #fafafa 100%);
+    }
+  }
+}

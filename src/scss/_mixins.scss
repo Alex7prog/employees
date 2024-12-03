@@ -1,0 +1,7 @@
+@use './breakpoints' as *;
+
+@mixin for-large-up {
+  @media (min-width: ($mobile-breakpoint + 1)) {
+    @content;
+  }
+}

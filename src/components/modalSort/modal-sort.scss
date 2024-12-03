@@ -1,0 +1,132 @@
+@use '../../scss/variables' as *;
+@use '../../scss/mixins' as *;
+@use '../../scss/breakpoints' as *;
+
+.wrapper {
+  position: fixed;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $modal-bg-color;
+
+  @include for-large-up {
+    align-items: center;
+  }
+}
+
+.sort-modal {
+  padding: 0px 16px 34px 16px;
+  width: calc(100% - 16px);
+  border-radius: 20px 20px 0 0;
+  background-color: $bg-color;
+
+  @include for-large-up {
+    width: 373px;
+    padding: 24px 16px 8px 16px;
+    border-radius: 20px;
+    background-color: $bg-color;
+  }
+
+  &__title-block {
+    position: relative;
+    padding-top: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+
+    @include for-large-up {
+      position: relative;
+      padding: 0;
+      margin: 0px 7px;
+      height: 24px;
+    }
+  }
+
+  &__close-btn {
+    margin: auto;
+    width: 56px;
+    height: 4px;
+    background-color: $text-color-lightgrey;
+    cursor: pointer;
+
+    & > svg {
+      display: none;
+    }
+
+    @include for-large-up {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      background-color: $bg-color-grey;
+      border-radius: 50%;
+      cursor: pointer;
+
+      & > svg {
+        display: block;
+      }
+
+      &:hover svg path {
+        fill: $text-color;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 12px;
+
+    @include for-large-up {
+      margin: 0;
+    }
+  }
+
+  &__radio-block {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+  }
+
+  &__radio-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 60px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: pointer;
+
+    & input[type='radio'] {
+      margin: 0 23px 0 0;
+      visibility: hidden;
+    }
+
+    & input[type='radio'] + span::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 18px;
+      left: -1px;
+      width: 24px;
+      height: 24px;
+      background: url('../../images/icons/radio-icon.svg') 0 0 no-repeat;
+    }
+    & input[type='radio']:checked + span::before {
+      background: url('../../images/icons/radio-checked-icon.svg') 0 0 no-repeat;
+    }
+
+    & input[type='radio'] + span:hover::before {
+      filter: brightness(120%);
+    }
+  }
+}

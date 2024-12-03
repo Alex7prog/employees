@@ -1,0 +1,12 @@
+@use '../../scss/variables' as *;
+
+.header {
+  background-color: $bg-color;
+
+  &__title {
+    padding: 8px 0px 12px 24px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+  }
+}
