@@ -1,6 +1,6 @@
 # Employees - React - Redux Toolkit - React Router - TypeScript
 
-### The application receives employee data from Ape, displays this list of employees on the browser page and provides the ability to filter, search and sort this list.
+### The application receives employees data from Ape, displays this list of employees on the browser page and provides the ability to filter, search and sort this list.
 
 ### [Site link](https://employees-list-a7.netlify.app/)
 
