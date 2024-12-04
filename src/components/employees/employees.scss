@@ -2,13 +2,10 @@
 @use '../../scss/mixins' as *;
 
 .container {
+  position: relative;
+  margin: auto;
   width: 100%;
+  max-width: 1280px;
   background-color: $bg-color;
   min-height: 100vh;
-
-  @include for-large-up {
-    margin: auto;
-    padding-top: 8px;
-    max-width: 1280px;
-  }
 }
