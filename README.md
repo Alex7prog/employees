@@ -2,7 +2,7 @@
 
 ### The application receives employee data from Ape, displays this list of employees on the browser page and provides the ability to filter, search and sort this list.
 
-### [Site link](https://kiyv-airport-a7.netlify.app/)
+### [Site link](https://employees-list-a7.netlify.app/)
 
 ### The tech stack is:
 
