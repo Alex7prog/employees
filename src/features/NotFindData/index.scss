@@ -1,0 +1,31 @@
+@use '../../scss/variables' as *;
+
+.notfind-data {
+  position: absolute;
+  top: calc(50% - 59px);
+  left: calc(50% - 171px);
+  width: 343px;
+  height: 118px;
+  text-align: center;
+  background-color: $bg-color;
+
+  &__img {
+    margin: auto;
+  }
+
+  &__msg-one {
+    margin-top: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 22px;
+    color: $text-color;
+  }
+
+  &__msg-two {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    color: $text-color-grey;
+  }
+}

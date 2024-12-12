@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Employees from './components/employees/Employees';
+import Employees from './features/Employees';
 
-import store from './store/store';
+import store from './redux/store';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 

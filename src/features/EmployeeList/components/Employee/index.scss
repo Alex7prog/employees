@@ -1,0 +1,51 @@
+@use '../../../../scss/variables' as *;
+
+.employee-link {
+  display: block;
+  width: fit-content;
+}
+
+.employee {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  height: 80px;
+
+  &__avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+  }
+
+  &__info {
+    margin-left: 16px;
+  }
+
+  &__name {
+    padding: 3px 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: $text-color;
+  }
+
+  &__tag {
+    margin-left: 4px;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: $text-color-grey;
+  }
+
+  &__position {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    color: $text-color-darkgrey;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

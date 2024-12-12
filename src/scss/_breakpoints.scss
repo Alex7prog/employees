@@ -1,1 +1,7 @@
 $mobile-breakpoint: 375px;
+
+@mixin for-large-up {
+  @media (min-width: ($mobile-breakpoint + 1)) {
+    @content;
+  }
+}

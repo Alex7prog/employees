@@ -1,0 +1,11 @@
+@use '../../scss/variables' as *;
+@use '../../scss/breakpoints' as *;
+
+.container {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: 1280px;
+  background-color: $bg-color;
+  min-height: 100vh;
+}
