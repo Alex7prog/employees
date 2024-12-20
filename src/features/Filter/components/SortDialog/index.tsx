@@ -2,13 +2,13 @@ import { FC, useState } from 'react';
 
 import './index.scss';
 
-type ModalSortProps = {
+type SortDialogProps = {
   toggleModal: () => void;
   handleSort: (value: string) => void;
   sortParam: string;
 };
 
-const ModalSort: FC<ModalSortProps> = ({ toggleModal, handleSort, sortParam }) => {
+const SortDialog: FC<SortDialogProps> = ({ toggleModal, handleSort, sortParam }) => {
   const [value, setValue] = useState(sortParam || '');
 
   const changeValue: React.ChangeEventHandler<HTMLInputElement> = e => {
@@ -17,8 +17,8 @@ const ModalSort: FC<ModalSortProps> = ({ toggleModal, handleSort, sortParam }) =
   };
 
   return (
-    <div className="wrapper">
-      <div className="sort-modal">
+    <div className="wrapper" onClick={toggleModal}>
+      <div className="sort-modal" onClick={e => e.stopPropagation()}>
         <div className="sort-modal__title-block">
           <div className="sort-modal__close-btn" onClick={toggleModal}>
             <svg
@@ -65,4 +65,4 @@ const ModalSort: FC<ModalSortProps> = ({ toggleModal, handleSort, sortParam }) =
   );
 };
 
-export default ModalSort;
+export default SortDialog;

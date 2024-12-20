@@ -1,6 +1,6 @@
 @use '../../../../scss/variables' as *;
 
-.header {
+.filter {
   &__search {
     padding: 6px 16px;
   }
@@ -40,10 +40,10 @@
       outline: none;
     }
 
-    &:focus + .header__search-icon svg path {
+    &:focus + .filter__search-icon svg path {
       fill: $text-color;
     }
-    &:hover + .header__search-icon svg path {
+    &:hover + .filter__search-icon svg path {
       fill: $text-color;
     }
   }

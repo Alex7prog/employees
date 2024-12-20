@@ -1,5 +1,9 @@
-@use '../../scss/variables' as *;
-@use '../../scss/breakpoints' as *;
+@use '../../../../scss/variables' as *;
+@use '../../../../scss/breakpoints' as *;
+
+body:has(.wrapper) {
+  overflow: hidden;
+}
 
 .wrapper {
   position: fixed;
@@ -118,10 +122,10 @@
       left: -1px;
       width: 24px;
       height: 24px;
-      background: url('../../../public/images/icons/radio-icon.svg') 0 0 no-repeat;
+      background: url('../../../../../public/images/icons/radio-icon.svg') 0 0 no-repeat;
     }
     & input[type='radio']:checked + span::before {
-      background: url('../../../public/images/icons/radio-checked-icon.svg') 0 0 no-repeat;
+      background: url('../../../../../public/images/icons/radio-checked-icon.svg') 0 0 no-repeat;
     }
 
     & input[type='radio'] + span:hover::before {

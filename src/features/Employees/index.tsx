@@ -2,11 +2,11 @@ import { FC, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { useAppDispatch } from '../../hooks/storeHooks';
-import { fetchEmployees } from '../../entities/gateways';
+import { fetchEmployees } from '../../entities/employee/gateways';
 
 import Layout from '../Layout';
 import EmployeeList from '../EmployeeList';
-import EmployeeProfile from '../EmployeeProfile';
+import EmployeeInfo from '../EmployeeInfo';
 import NotFoundPage from '../NotFoundPage';
 
 import './index.scss';
@@ -19,17 +19,12 @@ const Employees: FC = () => {
   }, [dispatch]);
 
   return (
-    <section className="employees container">
+    <section className="employees-page container">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<EmployeeList />} />
-          <Route path="designer" element={<EmployeeList />} />
-          <Route path="analyst" element={<EmployeeList />} />
-          <Route path="manager" element={<EmployeeList />} />
-          <Route path="ios" element={<EmployeeList />} />
-          <Route path="android" element={<EmployeeList />} />
         </Route>
-        <Route path="/employees/:id" element={<EmployeeProfile />} />
+        <Route path="/employees/:id" element={<EmployeeInfo />} />
         <Route path="/notfoundpage" element={<NotFoundPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

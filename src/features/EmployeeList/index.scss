@@ -1,3 +1,30 @@
+@use '../../../src/scss/variables' as *;
+
 .employee-list {
   padding: 168px 16px 0 16px;
+
+  &__divider {
+    margin: 24px;
+    display: flex;
+    align-items: center;
+
+    &-year {
+      display: inline-block;
+      width: 184px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 20px;
+      color: $text-color-lightgrey;
+    }
+
+    &::after,
+    &::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: $text-color-lightgrey;
+      flex-grow: 1;
+    }
+  }
 }

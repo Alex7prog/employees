@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { Employee } from '../entities/types';
-import { fetchEmployees } from '../entities/gateways';
+import type { Employee } from '../entities/employee/types';
+import { fetchEmployees } from '../entities/employee/gateways';
 // const SERVER_URL = 'https://66a0f8b17053166bcabd894e.mockapi.io/api/workers';
 
 type EmployeesState = {

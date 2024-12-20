@@ -1,22 +1,24 @@
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { useAppSelector } from './storeHooks';
+import { Employee } from '../entities/employee/types';
 
 const useEmployees = () => {
   const { employeesList, status } = useAppSelector(state => state.employees);
-
-  const location = useLocation();
   const [searchParams] = useSearchParams();
 
+  const positionParam = searchParams.get('position') || '';
   const filterParam = searchParams.get('filter') || '';
   const sortParam = searchParams.get('sort') || '';
 
   let filteredList = [];
-  const employeePosition = location.pathname.slice(1);
+  let sortedListByBirthDate: { [key: string]: Employee[] } = {};
+
+  const isSortByBirthDate = sortParam === 'birthday' ? true : false;
 
   try {
-    filteredList = !employeePosition
+    filteredList = !positionParam
       ? [...employeesList]
-      : employeesList.filter(employee => employee.position === location.pathname.slice(1));
+      : employeesList.filter(employee => employee.position === positionParam);
 
     if (filterParam) {
       filteredList = filteredList.filter(
@@ -33,20 +35,31 @@ const useEmployees = () => {
       }
 
       if (sortParam === 'birthday') {
-        filteredList = [...filteredList].sort((a, b) => b.birthDate - a.birthDate);
+        sortedListByBirthDate = [...filteredList]
+          .sort((a, b) => a.birthDate - b.birthDate)
+          .reduce((acc: { [key: string]: Employee[] }, el) => {
+            const year = new Date(el.birthDate).getFullYear();
+            acc[`${year}`] ??= [];
+            acc[`${year}`].push(el);
+            return acc;
+          }, {});
       }
     }
   } catch (error) {
     return {
       employeesList: [],
       status: 'error',
+      employeesListSortByBirthDate: {},
+      isSortByBirthDate,
       error: (error as Error).message,
     };
   }
 
   return {
     employeesList: filteredList,
-    status: status,
+    status,
+    employeesListSortByBirthDate: sortedListByBirthDate,
+    isSortByBirthDate,
     error: '',
   };
 };

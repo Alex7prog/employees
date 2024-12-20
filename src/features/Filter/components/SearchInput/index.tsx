@@ -1,68 +1,73 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import ModalSort from '../../../ModalSort';
+import SortDialog from '../SortDialog';
 
 import './index.scss';
 
-type urlSearchParams = {
-  filter?: string;
-  sort?: string;
-};
-
-const HeaderSearch: FC = () => {
+const SearchInput: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const filterParamQuery = searchParams.get('filter') || '';
-  const [text, setText] = useState(filterParamQuery);
+  const [text, setText] = useState(searchParams.get('filter') || '');
+  const [sort, setSort] = useState(searchParams.get('sort') || 'alphabet');
 
-  const sortParamQuery = searchParams.get('sort') || '';
-  const [sort, setSort] = useState(sortParamQuery);
-
-  const [modalSortIsActiv, setModalSortActive] = useState(false);
+  const [sortDialogIsActiv, setSortDialogActive] = useState(false);
 
   const handleChangeFilter: React.ChangeEventHandler<HTMLInputElement> = e => {
     const value = e.target.value;
     setText(value);
 
-    const params: urlSearchParams = {};
+    setSearchParams(params => {
+      if (!value) {
+        params.delete('filter');
+        return params;
+      }
 
-    if (value.length) params.filter = value;
-    if (sortParamQuery.length) params.sort = sortParamQuery;
-
-    setSearchParams(params);
+      params.set('filter', value);
+      return params;
+    });
   };
 
-  const handleSort = (value: string) => {
+  const handleSortParam = (value: string) => {
     setSort(value);
 
-    const params: urlSearchParams = {};
-    if (filterParamQuery.length) params.filter = filterParamQuery;
-    if (value.length) params.sort = value;
-
-    setSearchParams(params);
+    setSearchParams(params => {
+      params.set('sort', value);
+      return params;
+    });
   };
 
-  const toggleSortModalActive = () => {
-    setModalSortActive(!modalSortIsActiv);
+  const toggleSortDialogActive = () => {
+    setSortDialogActive(!sortDialogIsActiv);
   };
+
+  useEffect(() => {
+    setSearchParams(params => {
+      params.set('sort', sort);
+      return params;
+    });
+  }, []);
 
   return (
     <>
-      {modalSortIsActiv && (
-        <ModalSort toggleModal={toggleSortModalActive} handleSort={handleSort} sortParam={sort} />
+      {sortDialogIsActiv && (
+        <SortDialog
+          toggleModal={toggleSortDialogActive}
+          handleSort={handleSortParam}
+          sortParam={sort}
+        />
       )}
-      <div className="header__search">
-        <div className="header__search-bar">
+      <div className="filter__search">
+        <div className="filter__search-bar">
           <input
-            className="header__input"
+            className="filter__input"
             type="text"
             placeholder="Enter name, tag, email..."
             name="inputFilter"
             value={text}
             onChange={handleChangeFilter}
           />
-          <div className="header__search-icon">
+          <div className="filter__search-icon">
             <svg
               width="21"
               height="21"
@@ -76,7 +81,7 @@ const HeaderSearch: FC = () => {
               />
             </svg>
           </div>
-          <div className="header__sort-btn" onClick={toggleSortModalActive}>
+          <div className="filter__sort-btn" onClick={toggleSortDialogActive}>
             <svg
               width="24"
               height="24"
@@ -89,7 +94,6 @@ const HeaderSearch: FC = () => {
                 fill="#C3C3C6"
               />
             </svg>
-            {/* <img src={sortIcon} alt="sort-icon" /> */}
           </div>
         </div>
       </div>
@@ -97,4 +101,4 @@ const HeaderSearch: FC = () => {
   );
 };
 
-export default HeaderSearch;
+export default SearchInput;

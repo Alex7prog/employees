@@ -1,11 +1,12 @@
 @use '../../scss/variables' as *;
 @use '../../scss/breakpoints' as *;
 
-.header {
+.filter {
   position: fixed;
   width: 100%;
   max-width: inherit;
   background-color: $bg-color;
+  z-index: 1;
 
   &__title {
     padding: 14px 0px 12px 20px;

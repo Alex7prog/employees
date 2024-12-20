@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
-import Header from '../Header';
+import Filter from '../Filter';
 
 const Layout: FC = () => {
   return (
     <>
-      <Header />
+      <Filter />
       <Outlet />
     </>
   );

@@ -4,13 +4,9 @@ import { useAppSelector } from '../../hooks/storeHooks';
 
 import NotFoundPage from '../NotFoundPage';
 
-// import backIcon from '/images/icons/back-icon.svg';
-// import handsetIcon from '../../../public/images/icons/handset-icon.svg';
-// import starIcon from '../../../public/images/icons/images/icons/star-icon.svg';
-
 import './index.scss';
 
-const EmployeeProfile: FC = () => {
+const EmployeeInfo: FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const employeesList = useAppSelector(state => state.employees.employeesList);
@@ -30,44 +26,44 @@ const EmployeeProfile: FC = () => {
   const employeeAge = new Date().getFullYear() - new Date(employee.birthDate).getFullYear();
 
   return (
-    <div className="employee-profile">
-      <div className=" employee-info">
-        <div className="employee-info__btn-panel">
+    <div className="employee-info">
+      <div className=" employee-content">
+        <div className="employee-content__btn-panel">
           <img
-            className="employee-info__back-btn"
+            className="employee-content__back-btn"
             src="/images/icons/back-icon.svg"
             alt=""
             onClick={goBack}
           />
         </div>
-        <div className="employee-info__base">
-          <img className="employee-info__avatar" src={employee.avatar} alt="" />
-          <div className="employee-info__name">
+        <div className="employee-content__base">
+          <img className="employee-content__avatar" src={employee.avatar} alt="" />
+          <div className="employee-content__name">
             {employee.name}
-            <span className="employee-info__tag">{employee.tag}</span>
+            <span className="employee-content__tag">{employee.tag}</span>
           </div>
-          <div className="employee-info__position">{employee.position}</div>
+          <div className="employee-content__position">{employee.position}</div>
         </div>
       </div>
-      <div className="employee-info__add">
-        <div className="employee-info__date">
+      <div className="employee-content__add">
+        <div className="employee-content__date">
           <img src="/images/icons/star-icon.svg" alt="" />
-          <span className="employee-info__date-birthday">
+          <span className="employee-content__date-birthday">
             {birthDate.toLocaleString('ru', {
               year: 'numeric',
               month: 'long',
               day: 'numeric',
-            })}{' '}
+            })}
           </span>
-          <span className="employee-info__date-age">{`${employeeAge} лет`}</span>
+          <span className="employee-content__date-age">{`${employeeAge} лет`}</span>
         </div>
-        <div className="employee-info__phone">
+        <div className="employee-content__phone">
           <img src="/images/icons/handset-icon.svg" alt="" />
-          <span className="employee-info__phone-number">{employee.phone}</span>
+          <span className="employee-content__phone-number">{employee.phone}</span>
         </div>
       </div>
     </div>
   );
 };
 
-export default EmployeeProfile;
+export default EmployeeInfo;

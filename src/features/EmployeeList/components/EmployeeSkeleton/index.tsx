@@ -2,39 +2,39 @@ import { FC } from 'react';
 
 import './index.scss';
 
-const EmployeeSceleton: FC = () => {
+const EmployeeSkeleton: FC = () => {
   return (
-    <div>
-      <li className="employee employee_sceleton">
-        <div className="employee__avatar employee__avatar_sceleton"></div>
-        <div className="employee__info employee__info_sceleton">
-          <div className="employee__name employee__name_sceleton"></div>
-          <div className="employee__position employee__position_sceleton"></div>
+    <ul className="employee-list">
+      <li className="employee-card">
+        <div className="employee-card__avatar employee-card__avatar_skeleton"></div>
+        <div className="employee-card__info employee-card__info_skeleton">
+          <div className="employee-card__name employee-card__name_skeleton"></div>
+          <div className="employee-card__position employee-card__position_skeleton"></div>
         </div>
       </li>
-      <li className="employee employee_sceleton">
-        <div className="employee__avatar employee__avatar_sceleton"></div>
-        <div className="employee__info employee__info_sceleton">
-          <div className="employee__name employee__name_sceleton"></div>
-          <div className="employee__position employee__position_sceleton"></div>
+      <li className="employee-card">
+        <div className="employee-card__avatar employee-card__avatar_skeleton"></div>
+        <div className="employee-card__info employee-card__info_skeleton">
+          <div className="employee-card__name employee-card__name_skeleton"></div>
+          <div className="employee-card__position employee-card__position_skeleton"></div>
         </div>
       </li>
-      <li className="employee employee_sceleton">
-        <div className="employee__avatar employee__avatar_sceleton"></div>
-        <div className="employee__info employee__info_sceleton">
-          <div className="employee__name employee__name_sceleton"></div>
-          <div className="employee__position employee__position_sceleton"></div>
+      <li className="employee-card">
+        <div className="employee-card__avatar employee-card__avatar_skeleton"></div>
+        <div className="employee-card__info employee-card__info_skeleton">
+          <div className="employee-card__name employee-card__name_skeleton"></div>
+          <div className="employee-card__position employee-card__position_skeleton"></div>
         </div>
       </li>
-      <li className="employee employee_sceleton">
-        <div className="employee__avatar employee__avatar_sceleton"></div>
-        <div className="employee__info employee__info_sceleton">
-          <div className="employee__name employee__name_sceleton"></div>
-          <div className="employee__position employee__position_sceleton"></div>
+      <li className="employee-card">
+        <div className="employee-card__avatar employee-card__avatar_skeleton"></div>
+        <div className="employee-card__info employee-card__info_skeleton">
+          <div className="employee-card__name employee-card__name_skeleton"></div>
+          <div className="employee-card__position employee-card__position_skeleton"></div>
         </div>
       </li>
-    </div>
+    </ul>
   );
 };
 
-export default EmployeeSceleton;
+export default EmployeeSkeleton;
