@@ -1,27 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { Employee } from '../entities/employee/types';
 import { fetchEmployees } from '../entities/employee/gateways';
-// const SERVER_URL = 'https://66a0f8b17053166bcabd894e.mockapi.io/api/workers';
 
 type EmployeesState = {
   employeesList: Employee[];
   status: string;
   error: string;
 };
-
-// export const fetchEmployees = createAsyncThunk<Employee[], undefined, { rejectValue: string }>(
-//   'employees/fetchEmployees',
-//   async function (_, { rejectWithValue }) {
-//     const response = await fetch(SERVER_URL);
-
-//     if (!response.ok) {
-//       return rejectWithValue('fetch Error/server Error!');
-//     }
-
-//     const data = await response.json();
-//     return data;
-//   },
-// );
 
 const initialState: EmployeesState = {
   employeesList: [],

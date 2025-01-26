@@ -82,39 +82,38 @@
       width: 20.03px;
       height: 19.13px;
     }
+  }
 
-    &-birthday {
-      margin-left: 12px;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 20px;
-      color: $text-color;
-    }
+  &__date-birthday {
+    margin-left: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: $text-color;
+  }
 
-    &-age {
-      flex-grow: 1;
-      margin-right: 16px;
-      text-align: right;
+  &__date-age {
+    flex-grow: 1;
+    margin-right: 16px;
+    text-align: right;
 
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
 
-      color: $text-color-grey;
-    }
+    color: $text-color-grey;
   }
 
   &__phone {
     display: flex;
     align-items: center;
     height: 60px;
-
-    &-number {
-      margin-left: 12px;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 20px;
-      color: $text-color;
-    }
+  }
+  &__phone-number {
+    margin-left: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: $text-color;
   }
 }

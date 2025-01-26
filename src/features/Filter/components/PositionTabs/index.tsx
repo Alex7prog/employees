@@ -1,9 +1,14 @@
 import { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+import type { Position } from '../../../../entities/employee/types';
+
 import './index.scss';
 
-const navigationLinks = [
+const navigationLinks: {
+  nav: string;
+  param: 'all' | Position;
+}[] = [
   { nav: 'All', param: 'all' },
   { nav: 'Designers', param: 'designer' },
   { nav: 'Analysts', param: 'analyst' },

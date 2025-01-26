@@ -11,15 +11,12 @@ const EmployeeInfo: FC = () => {
   const navigate = useNavigate();
   const employeesList = useAppSelector(state => state.employees.employeesList);
 
-  if (!Number(id) && !Number.isInteger(id) && !(Number(id) > 0)) {
-    return <NotFoundPage />;
-  }
-
   const [employee] = employeesList.filter(employee => employee.id === id);
 
   if (!employee) {
     return <NotFoundPage />;
   }
+
   const goBack = () => navigate(-1);
 
   const birthDate = new Date(employee.birthDate);
