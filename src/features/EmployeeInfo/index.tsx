@@ -11,7 +11,7 @@ const EmployeeInfo: FC = () => {
   const navigate = useNavigate();
   const employeesList = useAppSelector(state => state.employees.employeesList);
 
-  const [employee] = employeesList.filter(employee => employee.id === id);
+  const employee = employeesList.find(employee => employee.id === id);
 
   if (!employee) {
     return <NotFoundPage />;

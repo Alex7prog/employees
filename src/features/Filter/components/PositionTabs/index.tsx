@@ -1,38 +1,20 @@
 import { FC } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import type { Position } from '../../../../entities/employee/types';
+import { navigationLinks } from './configs';
 
 import './index.scss';
-
-const navigationLinks: {
-  nav: string;
-  param: 'all' | Position;
-}[] = [
-  { nav: 'All', param: 'all' },
-  { nav: 'Designers', param: 'designer' },
-  { nav: 'Analysts', param: 'analyst' },
-  { nav: 'Managers', param: 'manager' },
-  { nav: 'iOS', param: 'ios' },
-  { nav: 'Android', param: 'android' },
-];
 
 const PositionTabs: FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleParams = (param: string) => {
-    if (param == 'all') {
-      if (searchParams.get('position')) {
-        setSearchParams(params => {
-          params.delete('position');
-          return params;
-        });
+    setSearchParams(params => {
+      if (param === 'all') {
+        params.delete('position');
+        return params;
       }
 
-      return;
-    }
-
-    setSearchParams(params => {
       params.set('position', param);
       return params;
     });

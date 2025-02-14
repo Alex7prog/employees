@@ -4,6 +4,7 @@
   margin-top: -10px;
   background-color: $bg-color-grey;
 }
+
 .employee-content {
   &__btn-panel {
     display: flex;
@@ -109,6 +110,7 @@
     align-items: center;
     height: 60px;
   }
+
   &__phone-number {
     margin-left: 12px;
     font-size: 16px;

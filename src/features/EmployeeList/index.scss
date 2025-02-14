@@ -8,16 +8,6 @@
     display: flex;
     align-items: center;
 
-    &-year {
-      display: inline-block;
-      width: 184px;
-      text-align: center;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 20px;
-      color: $text-color-lightgrey;
-    }
-
     &::after,
     &::before {
       content: '';
@@ -26,5 +16,15 @@
       background-color: $text-color-lightgrey;
       flex-grow: 1;
     }
+  }
+
+  &__divider-year {
+    display: inline-block;
+    width: 184px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    color: $text-color-lightgrey;
   }
 }

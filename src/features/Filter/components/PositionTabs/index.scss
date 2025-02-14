@@ -5,29 +5,29 @@
     padding-top: 8px;
     overflow: hidden;
     border-bottom: 1px solid $text-color-lightgrey;
+  }
 
-    &-position {
-      display: flex;
-      padding-left: 16px;
-      height: 35px;
+  &__tabs-position {
+    display: flex;
+    padding-left: 16px;
+    height: 35px;
 
-      &__link {
-        display: block;
-        padding: 8px 12px 7px;
-        font-size: 15px;
-        font-weight: 500;
-        line-height: 19px;
-        color: $text-color-grey;
-        cursor: pointer;
-      }
+    &__link {
+      display: block;
+      padding: 8px 12px 7px;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 19px;
+      color: $text-color-grey;
+      cursor: pointer;
+    }
 
-      &__link_active {
-        font-weight: 600;
-        color: $text-color;
-        border-bottom: 2px solid $text-color-selected;
-        cursor: default;
-        pointer-events: none;
-      }
+    &__link_active {
+      font-weight: 600;
+      color: $text-color;
+      border-bottom: 2px solid $text-color-selected;
+      cursor: default;
+      pointer-events: none;
     }
   }
 }
