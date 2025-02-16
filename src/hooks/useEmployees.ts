@@ -10,11 +10,12 @@ const useEmployees = (): [Employee[], string, string] => {
 
   const filteredEmployeesList = employeesList
     .filter(employee => (position ? employee.position === position : true))
-    .filter(
-      employee =>
-        employee.name.toLowerCase().includes(filter.toLowerCase()) ||
-        employee.email.includes(filter) ||
-        employee.tag.includes(filter),
+    .filter(employee =>
+      filter
+        ? employee.name.toLowerCase().includes(filter.toLowerCase()) ||
+          employee.email.includes(filter) ||
+          employee.tag.includes(filter)
+        : true,
     )
     .sort((a, b) =>
       sort === 'alphabet' ? a.name.localeCompare(b.name) : a.birthDate - b.birthDate,

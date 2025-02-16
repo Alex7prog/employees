@@ -1,26 +1,32 @@
 import { FC, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import './index.scss';
 
 type SortDialogProps = {
-  toggleModal: () => void;
-  handleSort: (value: string) => void;
-  sortParam: string;
+  toggleDialogActive: () => void;
 };
 
-const SortDialog: FC<SortDialogProps> = ({ toggleModal, handleSort, sortParam }) => {
-  const [value, setValue] = useState(sortParam || '');
+const SortDialog: FC<SortDialogProps> = ({ toggleDialogActive }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const [value, setValue] = useState(searchParams.get('sort') || 'alphabet');
 
   const changeValue: React.ChangeEventHandler<HTMLInputElement> = e => {
-    setValue(e.target.value);
-    handleSort(e.target.value);
+    const value = e.target.value;
+    setValue(value);
+
+    setSearchParams(params => {
+      params.set('sort', value);
+      return params;
+    });
   };
 
   return (
-    <div className="wrapper" onClick={toggleModal}>
+    <div className="wrapper" onClick={toggleDialogActive}>
       <div className="sort-modal" onClick={e => e.stopPropagation()}>
         <div className="sort-modal__title-block">
-          <div className="sort-modal__close-btn" onClick={toggleModal}>
+          <div className="sort-modal__close-btn" onClick={toggleDialogActive}>
             <svg
               width="10"
               height="10"

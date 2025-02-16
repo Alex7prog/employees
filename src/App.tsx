@@ -10,7 +10,7 @@ const App: FC = () => {
   return (
     <BrowserRouter>
       <Provider store={store}>
-        <Employees />;
+        <Employees />
       </Provider>
     </BrowserRouter>
   );

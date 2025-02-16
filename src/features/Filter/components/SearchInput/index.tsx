@@ -1,17 +1,15 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
-import SortDialog from '../SortDialog';
 
 import './index.scss';
 
-const SearchInput: FC = () => {
+type SearchInputProps = {
+  toggleDialogActive: () => void;
+};
+
+const SearchInput: FC<SearchInputProps> = ({ toggleDialogActive }) => {
   const [searchParams, setSearchParams] = useSearchParams();
-
   const [text, setText] = useState(searchParams.get('filter') || '');
-  const [sort, setSort] = useState(searchParams.get('sort') || 'alphabet');
-
-  const [sortDialogIsActiv, setSortDialogActive] = useState(false);
 
   const handleChangeFilter: React.ChangeEventHandler<HTMLInputElement> = e => {
     const value = e.target.value;
@@ -28,35 +26,8 @@ const SearchInput: FC = () => {
     });
   };
 
-  const handleSortParam = (value: string) => {
-    setSort(value);
-
-    setSearchParams(params => {
-      params.set('sort', value);
-      return params;
-    });
-  };
-
-  const toggleSortDialogActive = () => {
-    setSortDialogActive(!sortDialogIsActiv);
-  };
-
-  useEffect(() => {
-    setSearchParams(params => {
-      params.set('sort', sort);
-      return params;
-    });
-  }, []);
-
   return (
     <>
-      {sortDialogIsActiv && (
-        <SortDialog
-          toggleModal={toggleSortDialogActive}
-          handleSort={handleSortParam}
-          sortParam={sort}
-        />
-      )}
       <div className="filter__search">
         <div className="filter__search-bar">
           <input
@@ -81,7 +52,7 @@ const SearchInput: FC = () => {
               />
             </svg>
           </div>
-          <div className="filter__sort-btn" onClick={toggleSortDialogActive}>
+          <div className="filter__sort-btn" onClick={toggleDialogActive}>
             <svg
               width="24"
               height="24"
