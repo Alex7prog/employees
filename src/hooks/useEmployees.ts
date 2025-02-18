@@ -1,6 +1,6 @@
 import { useSearchParams } from 'react-router-dom';
-import type { Employee } from '../entities/employee/types';
-import { useAppSelector } from './storeHooks';
+import type { Employee } from '@entities/employee/types';
+import { useAppSelector } from '@hooks/storeHooks';
 
 const useEmployees = (): [Employee[], string, string] => {
   const { employeesList, status } = useAppSelector(state => state.employees);
@@ -9,13 +9,13 @@ const useEmployees = (): [Employee[], string, string] => {
   const { position = '', filter = '', sort = '' } = Object.fromEntries(searchParams.entries());
 
   const filteredEmployeesList = employeesList
-    .filter(employee => (position ? employee.position === position : true))
-    .filter(employee =>
-      filter
-        ? employee.name.toLowerCase().includes(filter.toLowerCase()) ||
+    .filter(
+      employee =>
+        (!position || employee.position === position) &&
+        (!filter ||
+          employee.name.toLowerCase().includes(filter.toLowerCase()) ||
           employee.email.includes(filter) ||
-          employee.tag.includes(filter)
-        : true,
+          employee.tag.includes(filter)),
     )
     .sort((a, b) =>
       sort === 'alphabet' ? a.name.localeCompare(b.name) : a.birthDate - b.birthDate,

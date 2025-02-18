@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import type { Employee } from '../types';
+import type { Employee } from '@entities/employee/types';
 
 const SERVER_URL = 'https://66a0f8b17053166bcabd894e.mockapi.io/api/workers';
 

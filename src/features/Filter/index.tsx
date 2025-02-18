@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-import SearchInput from './components/SearchInput';
-import PositionTabs from './components/PositionTabs';
-import SortDialog from './components/SortDialog';
+import SearchInput from '@features/Filter/components/SearchInput';
+import PositionTabs from '@features/Filter/components/PositionTabs';
+import SortDialog from '@features/Filter/components/SortDialog';
 
 import './index.scss';
 
@@ -23,6 +23,7 @@ const Filter: FC = () => {
         return params;
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

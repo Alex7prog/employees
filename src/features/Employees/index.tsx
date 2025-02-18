@@ -1,13 +1,13 @@
 import { FC, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { useAppDispatch } from '../../hooks/storeHooks';
-import { fetchEmployees } from '../../entities/employee/gateways';
+import { fetchEmployees } from '@entities/employee/gateways';
+import { useAppDispatch } from '@hooks/storeHooks';
 
-import Layout from '../Layout';
-import EmployeeList from '../EmployeeList';
-import EmployeeInfo from '../EmployeeInfo';
-import NotFoundPage from '../NotFoundPage';
+import Layout from '@layout/index';
+import EmployeeList from '@features/EmployeeList';
+import EmployeeInfo from '@features/EmployeeInfo';
+import NotFoundPage from '@features/NotFoundPage';
 
 import './index.scss';
 

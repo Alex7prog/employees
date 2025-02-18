@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import type { Employee } from '../../../../entities/employee/types';
+import type { Employee } from '@entities/employee/types';
 
 import './index.scss';
 

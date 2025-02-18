@@ -1,21 +1,17 @@
 import { FC, useMemo } from 'react';
-import { useEmployees } from '../../hooks/useEmployees';
+import { useEmployees } from '@hooks/useEmployees';
 
-import type { Employee } from '../../entities/employee/types';
+import type { Employee } from '@entities/employee/types';
 
-import EmployeeCard from './components/EmployeeCard';
-import EmployeeSkeleton from './components/EmployeeSkeleton';
-import ErrorInfo from '../ErrorInfo';
-import NotFindData from '../NotFindData';
+import EmployeeCard from '@features/EmployeeList/components/EmployeeCard';
+import EmployeeSkeleton from '@features/EmployeeList/components/EmployeeSkeleton';
+import ErrorInfo from '@features/ErrorInfo';
+import NotFindData from '@features/NotFindData';
 
 import './index.scss';
 
 const EmployeeList: FC = () => {
   const [employeesList, status, sortParam] = useEmployees();
-
-  if (status === 'rejected' || status === 'error') {
-    return <ErrorInfo />;
-  }
 
   const employeesListByBirthDate = useMemo(
     () =>
@@ -29,6 +25,10 @@ const EmployeeList: FC = () => {
       ),
     [employeesList],
   );
+
+  if (status === 'rejected' || status === 'error') {
+    return <ErrorInfo />;
+  }
 
   return (
     <>

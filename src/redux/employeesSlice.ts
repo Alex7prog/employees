@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { Employee } from '../entities/employee/types';
-import { fetchEmployees } from '../entities/employee/gateways';
+import type { Employee } from '@entities/employee/types';
+import { fetchEmployees } from '@entities/employee/gateways';
 
 type EmployeesState = {
   employeesList: Employee[];

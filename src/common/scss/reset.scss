@@ -1,8 +1,4 @@
-@use './variables' as *;
-
-html {
-  font-family: 'Inter', sans-serif;
-}
+@use '@common/scss/variables' as *;
 
 * {
   box-sizing: border-box;

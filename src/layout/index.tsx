@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
-import Filter from '../Filter';
+
+import Filter from '@features/Filter';
 
 const Layout: FC = () => {
   return (

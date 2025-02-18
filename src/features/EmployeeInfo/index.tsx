@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useAppSelector } from '../../hooks/storeHooks';
 
-import NotFoundPage from '../NotFoundPage';
+import { useAppSelector } from '@hooks/storeHooks';
+import NotFoundPage from '@features/NotFoundPage';
 
 import './index.scss';
 

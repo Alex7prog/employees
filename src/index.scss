@@ -1,3 +1,7 @@
-@use './scss/variables' as *;
-@use './scss/reset' as *;
-@use './scss/breakpoints' as *;
+@use '@common/scss/variables' as *;
+@use '@common/scss/reset' as *;
+@use '@common/scss/breakpoints' as *;
+
+html {
+  font-family: 'Inter', sans-serif;
+}
